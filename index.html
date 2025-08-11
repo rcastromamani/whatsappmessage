@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Enviar WhatsApp</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/jpeg" href="logostand148.jpg">
+
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -46,8 +50,7 @@
         border-radius: 8px;
         cursor: pointer;
         transition: 0.2s;
-        margin-bottom: 10px;
-        width: 100%;
+        flex: 1;
     }
     .btn-green:hover {
         background-color: #1ebe5d;
@@ -55,16 +58,20 @@
     .btn-red {
         background-color: #dc3545;
         color: white;
-        padding: 10px 20px;
+        padding: 10px;
         font-size: 16px;
         border: none;
         border-radius: 8px;
         cursor: pointer;
         transition: 0.2s;
-        width: 100%;
+        width: 50px;
     }
     .btn-red:hover {
         background-color: #b02a37;
+    }
+    .button-row {
+        display: flex;
+        gap: 8px;
     }
 </style>
 </head>
@@ -73,14 +80,15 @@
 <div class="container">
     <h2>Enviar WhatsApp</h2>
     <input type="text" id="phone" placeholder="Ingrese número (solo dígitos)" onfocus="this.value = this.value;" value="519">
-    <button class="btn-green" onclick="enviarWhatsApp()">Enviar Mensaje</button>
-    <button class="btn-red" onclick="resetInput()">Borrar y Restaurar</button>
+    <div class="button-row">
+        <button class="btn-red" onclick="resetInput()">X</button>
+        <button class="btn-green" onclick="enviarWhatsApp()">Enviar Mensaje</button>
+    </div>
 </div>
 
 <script>
 function enviarWhatsApp() {
     let numero = document.getElementById("phone").value.trim();
-    // Validar que solo sean números
     if(!/^\d+$/.test(numero)) {
         alert("Por favor, ingrese solo números.");
         return;
