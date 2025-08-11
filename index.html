@@ -103,6 +103,12 @@ function enviarWhatsApp() {
 
 function resetInput() {
     document.getElementById("phone").value = "519";
+    const input = document.getElementById('phone');
+    const length = input.value.length;
+    // Focus on the input
+    input.focus();
+    // Set the cursor to the end
+    input.setSelectionRange(length, length);    
 }
 </script>
 
